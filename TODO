@@ -1,0 +1,66 @@
+After doing the auction last night below are the utmost priority focussed changes - Before working on leaderboard lets focus on this and UPLOADING IT ON IOS by 1ST/2ND AUGUST
+
+✔ 1 - Lets go with a 12 second timer with a tick tick coming at 5 second @done(25-07-29 00:48)
+
+✔ 2 - Total Players left should be on the top just beside/below the budget - This is vvip because folks thought players are left and auction ended. This button if somebody clicks can also show them the list of players left. @done(25-07-29 23:38)
+
+☐ 3 - Custom amount - We can remove 50k and keep 1 lakh, 2 lakh and custom amount button where in the custom a player can add any amount they want under their budget. 
+
+☐ 4 - Own bid should not be repeated, so if the last bid is of Himanshu, himanshu should not be able to bid again on that. Because double bid was happenning. 
+
+☐ 5 - Place the bid/chat vala area towards the footer, so basically just how we have it in most apps. Place bid and chat should be the lowest thing visible. LIVE bids vala area can go up. 
+
+☐ 6 - Dimension of apps in different phones and different users was different people were not able to use it properly. Wallet was going extreme right.
+
+✔ 7 - The image box and the player box which was scrollable has to go big. We should increase size so that things are visible and other people's balance is visible. @done(25-07-29 23:44)
+
+☐ 8 - The player button where all the other players what they bought was not in check, for eg - Players bought by siddharth were visible in Rahul and then after refreshing it showed correct. So that bug we need to perfect it. 
+
+✔ 9 - The first page showcasing virat kohli and bug, we should add a loader proper showcasing welcome to auction and give a start button there - so that when we click on start it loads. @done(25-07-29 01:41)
+
+☐ 10 - While launching auction via backend I also need number of players that they have to buy min and max. For eg in yesterday's auction min players to be bought was 3 and max 4. So the existing field should be changed to number of participants min and max and then there should be number of players to buy min and max. 
+
+✔ 11 - Whenever a player is going UNSOLD we need to showcase something else and remove the clapping sound and replace it with a negative sound. @done(25-07-29 22:55)
+
+☐ 12 - When i launched the auction, registered and just went back in my phone it did not show join live auction for me but showed for all. So we need to de-bug this. 
+
+☐ 13 - Add an option to add photo in the profile and that photo should be visible during auction when a person clicks their name to see their budget/players
+
+☐ 14 - Notification bar permanent so that if the app is down they can see what player is running just how our backend showcases.
+
+✔ 15 - otp bug fix.. @done(25-07-29 00:49)
+
+☐ 16 - player show in leaderboard.
+
+☐ 17 - Sidebar...
+
+☐ 18 - Appbar..
+
+☐ 19 - all auction -> rule or share... icon in auction card,,
+
+☐ 20 - floating bottom for create auction..
+
+
+Profile update option where it shows manage your account settings.
+2 - Sound off button during the auction 
+3 - While registering for a new user allowing a person to upload photograph or registering via FB.
+4 - When we start the app, while registering and entering the number it shows Welcome to Auction game, it should show Welcome to Core and above in the circle it should have our logo. 
+5 - show registrations there itself to users - who have registered.
+6 - Deleting/Disabling player groups as well.
+7 - Whoever is from laptop uska name nai aa aha bidders mai
+8 - When we have the first player the timer should be 20 seconds and then all the bids should be 12 seconds
+9 - Randomiser has to be there in the game. Players were not being shuffled.
+10 - Sound issue major - it was cracking and it was very unusual on the laptop. 
+11 - Custom button - remove - instead lets add 1,2 & 5 lakhs and lets remove place bid and instead add a footer with the 3 small buttons for faster game play.
+ 13 - Nobody can see other players of participants. It was all mixing. This was pissing everyone off. Major issue. 
+14 - When the auction starts there should be a screen with instructions of button and it should start 30 seconds post entry. It should show auction starts in 30 seconds with a timer.
+15 - Remove baseball as an option
+16- Post 50% of the players being auctioned, there should be  a 2 minute break where we showcase a table with budgets left for all, number of players bought by all with a toggle to see what players are left. 
+17 - In the middle of the auction it was lagging and whenever a new player is coming it shows cannot bid for 2 seconds and then it used to show new player.
+18 - When auction ends we should have a summary with what they have bought and a toggle to see other players teams as well in a good UI.
+
+
+
+
+
+

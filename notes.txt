@@ -1,0 +1,25 @@
+points 
+  - no need of auction type
+  - entry fee amount
+  - winning amount
+  - rules(imp) -> add text editor so admin can add these ...
+  - remove player example....32 players and 2 max.. remove these from app auction card. add winning  amount upto
+     and entry amount..... 
+  - starting in 5 hours.... / else... 5 hours left.... / 2min left...
+  - rules screen to show after register button click.. -> in the same screen .. at below show buttomm payment button.... after payment complete
+    refer ....... -> 
+  - otp back not working...
+  - remove exception error data like strike rate, matches and average...... instead change player image height
+    and name.
+  - my team section-> remove remaining budget and total spent ... instead show entry fee and winning amount..
+  - team size change to rules .. where click shows rules screen..
+  - for each user click.. show details of purchased player with point distribution
+  - profile screen.... total winning ..... total matches...
+  - refer(to be asked from sid)
+  - wallet .. for winning amount... 
+  - withdraw amount... take user bank details. and reflect that on admin panel..where admin will manually give pament and mark the status
+  - help and support.... clicking on it open whatsapp.
+
+  - at top navbar.. on right side show .. icon which has both cricket and football related images/icons
+  - during registration or phone screen .. take consent that you are above 18 years..
+  - 
