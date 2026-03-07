@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:auctiongame/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:auctiongame/helpers/tokenmanager.dart';
@@ -55,12 +56,15 @@ class AuthService {
   }
 
   // Update user profile information
+  // Use Uint8List for imageBytes to support both Flutter Web and Mobile
   static Future<Map<String, dynamic>> updateProfile({
     required String name,
     required String email,
     String? dob,
-    File? image,
+    Uint8List? imageBytes,
+    String? fileName,
   }) async {
+    print("===============> update profile is called");
     final token = await TokenManager.getToken();
     if (token == null) {
       throw Exception('User not authenticated');
@@ -79,11 +83,13 @@ class AuthService {
         request.fields['dob'] = dob;
       }
 
-      if (image != null) {
+      if (imageBytes != null) {
+        // Use MultipartFile.fromBytes which works on both Web and Mobile
         request.files.add(
-          await http.MultipartFile.fromPath(
-            'file', // must match the backend field name
-            image.path,
+          http.MultipartFile.fromBytes(
+            'file',
+            imageBytes,
+            filename: fileName ?? 'profile_image.jpg',
           ),
         );
       }

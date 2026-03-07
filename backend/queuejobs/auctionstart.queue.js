@@ -75,31 +75,18 @@ const startAuction = async (auctionId) => {
     const redis = getRedisClient();
 
     // Shuffle function to randomize player order
-    // const shuffleArray = (array) => {
-    //   const newArray = [...array];
-    //   for (let i = newArray.length - 1; i > 0; i--) {
-    //     const j = Math.floor(Math.random() * (i + 1));
-    //     [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    //   }
-    //   return newArray;
-    // };
+    const shuffleArray = (array) => {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    };
 
-    // // Get player IDs and shuffle them
-    // let realplayerid = players.map((p) => p.playerId.toString());
-    // realplayerid = shuffleArray(realplayerid);
-
-    const realplayerid = players.map((p) => p.playerId.toString());
-
-    // const shuffleArray = (array) => {
-    //   for (let i = array.length - 1; i > 0; i--) {
-    //     const j = Math.floor(Math.random() * (i + 1));
-    //     [array[i], array[j]] = [array[j], array[i]];
-    //   }
-    //   return array;
-    // };
-
-    // let realplayerid = players.map((player) => player.id.toString());
-    // realplayerid = shuffleArray(realplayerid);
+    // Get player IDs and shuffle them
+    let realplayerid = players.map((p) => p.playerId.toString());
+    realplayerid = shuffleArray(realplayerid);
 
     for (const playerId of realplayerid) {
       await redis.rPush(`auction:${auctionId}:player_queue`, playerId);

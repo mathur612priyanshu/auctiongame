@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:auctiongame/api/authservice.dart';
 import 'package:auctiongame/constants.dart';
 import 'package:auctiongame/helpers/tokenmanager.dart';
@@ -5,6 +6,7 @@ import 'package:auctiongame/models/usermodel.dart';
 import 'package:auctiongame/providers/userprovider.dart';
 import 'package:auctiongame/theme/appcolor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
@@ -24,7 +26,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
 
-  File? _profileImage;
+  // For Mobile: File, For Web: Uint8List
+  dynamic _profileImage;
+  Uint8List? _profileImageBytes;
+  String? _profileImageName;
   bool _isLoading = false;
   final ImagePicker _picker = ImagePicker();
 
@@ -148,8 +153,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       );
 
       if (image != null) {
+        // Read image as bytes (works on both Web and Mobile)
+        final bytes = await image.readAsBytes();
         setState(() {
-          _profileImage = File(image.path);
+          _profileImageBytes = bytes;
+          _profileImageName = image.name;
         });
       }
     } catch (e) {
@@ -171,7 +179,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         name: _nameController.text,
         email: _emailController.text,
         // dob: _dobController.text,
-        image: _profileImage,
+        // Pass imageBytes (works on both Web and Mobile)
+        imageBytes: _profileImageBytes,
+        fileName: _profileImageName,
       );
 
       if (result['success']) {

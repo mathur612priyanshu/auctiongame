@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:auctiongame/api/authservice.dart';
 import 'package:auctiongame/main.dart';
@@ -32,12 +33,19 @@ class _LoginScreenState extends State<LoginScreen>
   final _otpFormKey = GlobalKey<FormState>();
   final _profileFormKey = GlobalKey<FormState>();
   File? _selectedImage;
+  Uint8List? _selectedImageBytes;
+  String? _selectedImageName;
   final ImagePicker _picker = ImagePicker();
+
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
+      // Read image as bytes (works on both Web and Mobile)
+      final bytes = await pickedFile.readAsBytes();
       setState(() {
+        _selectedImageBytes = bytes;
+        _selectedImageName = pickedFile.name;
         _selectedImage = File(pickedFile.path);
       });
     }
@@ -239,18 +247,20 @@ class _LoginScreenState extends State<LoginScreen>
       final name = _nameController.text.trim();
       final email = _emailController.text.trim();
       final dob = _dobController.text.trim();
-      File? image = _selectedImage;
-      if (image == null) {
+
+      if (_selectedImageBytes == null) {
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(SnackBar(content: Text('Please select an image first')));
         return; // stop further code execution
       }
+      print("===============================> flow yha tk chl rha h ");
       final result = await AuthService.updateProfile(
         name: name,
         email: email,
         dob: dob,
-        image: image,
+        imageBytes: _selectedImageBytes,
+        fileName: _selectedImageName,
       );
 
       if (result['success']) {
