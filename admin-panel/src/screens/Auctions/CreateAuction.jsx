@@ -202,7 +202,7 @@ const CreateAuction = () => {
         // type: form.type,
         // maxPlayers: parseInt(form.maxPlayers),
         minPlayers: form.minPlayers ? parseInt(form.minPlayers) : null,
-        startTime: form.startTime || null,
+        startTime: form.startTime ? new Date(form.startTime + ':00').toISOString() : null,
         endTime: form.endTime || null,
         selectedPlayers: selectedPlayerIds,
         runPoint: form.runPoint ? parseInt(form.runPoint) : 1,

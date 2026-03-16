@@ -910,8 +910,8 @@ const AuctionDetail = () => {
                 <div>
                   <div className="font-medium">Auction Started</div>
                   <div className="text-sm text-muted-foreground">
-                    {auction.startTime
-                      ? new Date(auction.startTime).toLocaleString()
+                    {auction.startTime?
+new Date(auction.startTime).toLocaleString("en-IN",{timeZone: "Asia/Kolkata"})
                       : "Not started yet"}
                   </div>
                 </div>

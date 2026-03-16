@@ -90,7 +90,7 @@ const EditAuction = () => {
       const payload = {
         name: form.name,
         category: form.category,
-        startTime: form.startTime || null,
+        startTime: form.startTime ? new Date(form.startTime + ':00').toISOString() : null,
         minPlayers: form.minPlayers ? parseInt(form.minPlayers) : undefined,
         entryAmount: form.entryAmount ? parseInt(form.entryAmount) : undefined,
         maxPlayerAllowed: form.maxPlayerAllowed

@@ -154,11 +154,16 @@ const getAllAuctions = async (req, res) => {
         });
       }
 
+      const auctionsWithFormattedTime = auctions.map(auction => ({
+        ...auction.toJSON(),
+        formattedStartTime: auction.startTime ? new Date(auction.startTime).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'}) : null
+      }));
       return res.status(200).json({
         success: true,
         message: "Auctions retrieved successfully",
-        data: auctions,
+        data: auctionsWithFormattedTime,
       });
+
     }
 
     let result;
@@ -236,11 +241,14 @@ const getAuctionById = async (req, res) => {
       });
     }
 
+    const auctionData = auction.toJSON();
+    auctionData.formattedStartTime = auction.startTime ? new Date(auction.startTime).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'}) : null;
     res.status(200).json({
       success: true,
       message: "Auction retrieved successfully",
-      data: auction,
+      data: auctionData,
     });
+
   } catch (error) {
     res.status(500).json({
       success: false,
